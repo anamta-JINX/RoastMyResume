@@ -1,0 +1,122 @@
+.heal-section {
+  margin-top: 24px;
+  border-radius: 28px;
+  border: 1px solid rgba(126, 255, 198, 0.2);
+  background:
+    radial-gradient(circle at 12% 10%, rgba(88, 255, 196, 0.12), transparent 34%),
+    radial-gradient(circle at 92% 20%, rgba(113, 201, 255, 0.1), transparent 36%),
+    linear-gradient(145deg, rgba(9, 24, 22, 0.94), rgba(8, 14, 20, 0.92));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+  overflow: hidden;
+}
+
+.heal-inner {
+  padding: 34px;
+}
+
+.heal-badge {
+  width: fit-content;
+  padding: 9px 14px;
+  border-radius: 999px;
+  color: #b8ffe5;
+  background: rgba(81, 255, 190, 0.09);
+  border: 1px solid rgba(126, 255, 198, 0.22);
+  font-weight: 900;
+}
+
+.heal-title {
+  margin: 18px 0 10px;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  color: #ecfff8;
+}
+
+.heal-text {
+  max-width: 720px;
+  margin: 0;
+  color: #c9eee4;
+  line-height: 1.75;
+}
+
+.heal-card {
+  border: 1px solid rgba(126, 255, 198, 0.18);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.045);
+  padding: 22px;
+}
+
+.heal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.heal-input,
+.heal-select,
+.heal-textarea {
+  width: 100%;
+  border: 1px solid rgba(179, 255, 229, 0.18);
+  border-radius: 16px;
+  background: rgba(4, 12, 13, 0.72);
+  color: #effff9;
+  padding: 13px 14px;
+  outline: none;
+}
+
+.heal-input:focus,
+.heal-select:focus,
+.heal-textarea:focus {
+  border-color: rgba(126, 255, 198, 0.55);
+  box-shadow: 0 0 0 4px rgba(126, 255, 198, 0.08);
+}
+
+.heal-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #b8ffe5;
+  font-size: 0.92rem;
+  font-weight: 900;
+}
+
+.heal-btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 22px;
+  color: #04130f;
+  background: linear-gradient(135deg, #7effc6, #b6fff0, #8ecbff);
+  box-shadow: 0 16px 40px rgba(126, 255, 198, 0.18);
+  font-weight: 950;
+}
+
+.premium-card {
+  border: 1px solid rgba(126, 255, 198, 0.2);
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(126, 255, 198, 0.1), transparent 48%),
+    rgba(2, 10, 10, 0.58);
+  padding: 24px;
+}
+
+.premium-card h3 {
+  margin: 0 0 8px;
+  color: #ecfff8;
+  letter-spacing: -0.03em;
+}
+
+.premium-card p {
+  margin: 0;
+  color: #c9eee4;
+  line-height: 1.7;
+}
+
+@media (max-width: 720px) {
+  .heal-inner {
+    padding: 24px 20px;
+  }
+
+  .heal-grid {
+    grid-template-columns: 1fr;
+  }
+}
