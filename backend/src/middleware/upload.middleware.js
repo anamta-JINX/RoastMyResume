@@ -1,15 +1,7 @@
 import multer from "multer";
 import path from "path";
-import fs from "fs";
-
 import { env } from "../config/env.js";
 import ApiError from "../utils/ApiError.js";
-
-const uploadDir = path.join(process.cwd(), "src", "uploads");
-
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
-}
 
 const allowedMimeTypes = [
   "application/pdf",
@@ -18,27 +10,16 @@ const allowedMimeTypes = [
 
 const allowedExtensions = [".pdf", ".docx"];
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, uploadDir);
-  },
-
-  filename: (req, file, cb) => {
-    const extension = path.extname(file.originalname).toLowerCase();
-    const safeName = file.originalname
-      .replace(extension, "")
-      .replace(/[^a-zA-Z0-9]/g, "-")
-      .toLowerCase();
-
-    cb(null, `${Date.now()}-${safeName}${extension}`);
-  }
-});
-
 function fileFilter(req, file, cb) {
-  const extension = path.extname(file.originalname).toLowerCase();
+  const extension = path
+    .extname(file.originalname)
+    .toLowerCase();
 
-  const isValidMimeType = allowedMimeTypes.includes(file.mimetype);
-  const isValidExtension = allowedExtensions.includes(extension);
+  const isValidMimeType =
+    allowedMimeTypes.includes(file.mimetype);
+
+  const isValidExtension =
+    allowedExtensions.includes(extension);
 
   if (!isValidMimeType || !isValidExtension) {
     return cb(
@@ -53,9 +34,12 @@ function fileFilter(req, file, cb) {
 }
 
 export const uploadResume = multer({
-  storage,
+  storage: multer.memoryStorage(),
+
   fileFilter,
+
   limits: {
-    fileSize: env.maxFileSizeMb * 1024 * 1024
+    fileSize:
+      env.maxFileSizeMb * 1024 * 1024
   }
 }).single("resume");
